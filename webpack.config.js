@@ -7,13 +7,14 @@ module.exports = {
     './src/index.js'
   ],
   module: {
-    loaders: [{
+    rules: [{
       test: /\.jsx$/,
+      exclude: /node_modules/,
       loader: 'react-hot!babel'
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   output: {
     path: __dirname + '/dist',
