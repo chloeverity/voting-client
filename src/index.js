@@ -1,1 +1,1 @@
-console.log("I'm objectively the coolest person alive")
+console.log("I am objectively the coolest person")
