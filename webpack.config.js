@@ -1,20 +1,21 @@
 var webpack = require('webpack');
 
 module.exports = {
+  mode: 'development',
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './src/index.js'
+    './src/index.jsx'
   ],
   module: {
     rules: [{
-      test: /\.jsx$/,
+      test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel'
+      loader: 'react-hot-loader/webpack!babel-loader'
     }]
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: [ '.js', '.jsx']
   },
   output: {
     path: __dirname + '/dist',
@@ -22,7 +23,10 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './dist',
+    headers:          { 'Access-Control-Allow-Origin': '*' },
+    https:            false,
+    disableHostCheck: true,
+    contentBase: './web',
     hot: true
   },
   plugins: [
