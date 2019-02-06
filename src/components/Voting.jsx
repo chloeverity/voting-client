@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default React.createClass({
+var createReactClass = require('create-react-class');
+
+const Voting = createReactClass({
   getPair: function() {
     return this.props.pair || [];
   },
@@ -14,3 +16,5 @@ export default React.createClass({
     </div>;
   }
 });
+
+export default Voting;

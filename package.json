@@ -29,9 +29,11 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
+    "create-react-class": "^15.6.3",
     "immutable": "^3.8.1",
     "react": "^16.7.0",
     "react-addons-pure-render-mixin": "^15.6.2",
+    "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1"
   },
