@@ -4,7 +4,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 var createReactClass = require('create-react-class');
 
-const Voting = createReactClass({
+const Vote = createReactClass({
   mixins: [PureRenderMixin],
   getPair: function() {
     return this.props.pair || [];
@@ -31,4 +31,4 @@ const Voting = createReactClass({
   }
 });
 
-export default Voting;
+export default Vote;

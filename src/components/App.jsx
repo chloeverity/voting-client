@@ -10,3 +10,5 @@ const App = createReactClass({
     return React.cloneElement(this.props.children, {pair: pair});
   }
 });
+
+export default App;
