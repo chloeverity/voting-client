@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Route} from 'react-route';
+import {Router, Route, hashHistory} from 'react-route';
 import App from './components/App';
 import Voting from './components/Voting';
 
@@ -11,6 +11,6 @@ const routes = <Route component={App}>
 </Route>
 
 ReactDOM.render(
-  <Voting pair={pair} winner="Trainspotting" />,
+  <Router history={hashHistory}>{routes}</Router>,
   document.getElementById('app')
 );
