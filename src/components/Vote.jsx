@@ -1,8 +1,11 @@
 import React from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
+
 
 var createReactClass = require('create-react-class');
 
 const Voting = createReactClass({
+  mixins: [PureRenderMixin],
   getPair: function() {
     return this.props.pair || [];
   },
