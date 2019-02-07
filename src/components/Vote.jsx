@@ -1,34 +1,38 @@
 import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 
+export default class Vote extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.getPair = this.getPair.bind(this);
+        this.isDisabled = this.isDisabled.bind(this);
+        this.hasVotedFor = this.hasVotedFor.bind(this);
+    }
 
-var createReactClass = require('create-react-class');
+    getPair() {
+        console.log(this.props.pair)
+        return this.props.pair || [];
+    }
 
-const Vote = createReactClass({
-  mixins: [PureRenderMixin],
-  getPair: function() {
-    return this.props.pair || [];
-  },
-  isDisabled: function() {
-    return !!this.props.hasVoted;
-  },
-  hasVotedFor: function(entry) {
-    return this.props.hasVoted === entry;
-  },
-  render: function() {
-    return <div className="voting">
-      {this.getPair().map(entry =>
-        <button key={entry}
-                disabled={this.isDisabled()}
-                onClick={() => this.props.vote(entry)}>
-          <h1>{entry}</h1>
-          {this.hasVotedFor(entry) ?
-            <div className="label">Voted</div> :
-            null}
-        </button>
-      )}
-    </div>;
-  }
-});
+    isDisabled() {
+        return !!this.props.hasVoted;
+    }
 
-export default Vote;
+    hasVotedFor(entry) {
+        return this.props.hasVoted === entry;
+    }
+
+    render() {
+        return <div className="voting">
+            {this.getPair().map(entry =>
+                <button key={entry}
+                    disabled={this.isDisabled()}
+                    onClick={() => this.props.vote(entry)}>
+                    <h1>{entry}</h1>
+                    {this.hasVotedFor(entry) ?
+                        <div className="label">Voted</div>:
+                        null}
+                </button>
+            )}
+        </div>;
+    }
+}
